@@ -1,0 +1,9 @@
+{
+  "name": "caesar_cli_task",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "akurlovich",
+  "dependencies": {
+    "commander": "^6.1.0"
+  }
+}
