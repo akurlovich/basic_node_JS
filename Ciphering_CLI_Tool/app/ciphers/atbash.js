@@ -1,8 +1,7 @@
-const alphabet = "abcdefghijklmnopqrstuvwxyz",
-      alphabetUpper = alphabet.toUpperCase();
+const alphabet = "abcdefghijklmnopqrstuvwxyz";
+const alphabetUpper = alphabet.toUpperCase();
 
 exports.atbash = (text) => {
-  console.log(text)
   const map = Array.prototype.map;
   return map.call(text, char => {
     const length = alphabet.length;

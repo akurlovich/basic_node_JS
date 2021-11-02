@@ -2,9 +2,10 @@ const { pipeline } = require("stream");
 const { inputStream } = require("./inputStream");
 const { outputStream } = require("./outputStream");
 const { transformStream } = require("./transform_text");
-const validation = require("./validation");
+const validation = require("./utils/validation");
 
-exports.process = (config, input, output) => {
+exports.processes = (config, input, output) => {
+  //!___проверка на одинаковые флаги
   // console.log(config.split('-'));
   const valid = validation(config);
   if (!valid) {
@@ -23,7 +24,7 @@ exports.process = (config, input, output) => {
     // console.log('object', config),
     inputStream(input),
     // console.log(inputStream(input)),
-    transformStream(),
+    transformStream(config),
     outputStream(output),
     error => {
       if (error) {
