@@ -23,7 +23,7 @@ exports.process = (config, input, output) => {
     // console.log('object', config),
     inputStream(input),
     // console.log(inputStream(input)),
-    transformStream(1),
+    transformStream(),
     outputStream(output),
     error => {
       if (error) {
