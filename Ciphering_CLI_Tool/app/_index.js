@@ -11,6 +11,7 @@ program
   .option("-a, --action <type>", "an action encode/decode", value => value)
   .action(() => {
     const { action, shift, input, output } = program.opts();
+    console.log(program.opts());
     process(
       shift,
       action,
