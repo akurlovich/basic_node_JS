@@ -1,6 +1,6 @@
-const fs = require("fs");
+const fs = require('fs');
 
-exports.outputStream = filename => {
+exports.outputStream = (filename) => {
   if (filename) {
     if (fs.existsSync(filename)) {
       return fs.createWriteStream(filename, {flags: 'a'});

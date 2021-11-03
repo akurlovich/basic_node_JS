@@ -1,6 +1,6 @@
-const fs = require("fs");
+const fs = require('fs');
 
-exports.inputStream = filename => {
+exports.inputStream = (filename) => {
   if (filename) {
     if (fs.existsSync(filename)) {
       return fs.createReadStream(filename);
