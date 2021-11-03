@@ -6,7 +6,16 @@ const validation = require("./utils/validation");
 
 exports.processes = (config, input, output) => {
   //!___проверка на одинаковые флаги
-  // console.log(config.split('-'));
+  if (config === 'no config') {
+    console.error("no config");
+    process.exit(9);
+  }
+
+  if (config === 'config dulicate' || input === 'config dulicate' || output === 'config dulicate') {
+    console.error("config dulicate");
+    process.exit(9);
+  }
+
   const valid = validation(config);
   if (!valid) {
     console.error("Config are required");

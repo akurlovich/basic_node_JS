@@ -7,7 +7,7 @@ const cipher = (text, config) => {
   const arr = config.split('-');
   let readyCipher = text;
   for (let i = 0; i < arr.length; i++) {
-    if (arr[i][0] === 'C') {
+    if (arr[i][0] === 'c') {
       if (arr[i][1] === '1') {
         readyCipher = ceasar(readyCipher, 1);
       };

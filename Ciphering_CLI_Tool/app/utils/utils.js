@@ -1,7 +1,36 @@
-const getValue = (flag) => {
+const getConfig = (flag) => {
   const flagIndex = process.argv.indexOf(flag);
-  return flagIndex !== -1 ? process.argv[flagIndex + 1] : null;
+  const flagLastIndex = process.argv.lastIndexOf(flag);
+  if (flagIndex === flagLastIndex) {
+    return flagIndex !== -1 ? process.argv[flagIndex + 1] : 'no config';
+  } else {
+    return 'config dulicate';
+  }
 };
 
-module.exports = getValue;
+const getInput = (flag) => {
+  const flagIndex = process.argv.indexOf(flag);
+  const flagLastIndex = process.argv.lastIndexOf(flag);
+  if (flagIndex === flagLastIndex) {
+    return flagIndex !== -1 ? process.argv[flagIndex + 1] : null;
+  } else {
+    return 'config dulicate';
+  }
+};
+
+const getOutput = (flag) => {
+  const flagIndex = process.argv.indexOf(flag);
+  const flagLastIndex = process.argv.lastIndexOf(flag);
+  if (flagIndex === flagLastIndex) {
+    return flagIndex !== -1 ? process.argv[flagIndex + 1] : null;
+  } else {
+    return 'config dulicate';
+  }
+};
+
+module.exports = { 
+  getConfig,
+  getInput,
+  getOutput,
+}
 

@@ -1,5 +1,5 @@
 const { processes } = require("./process");
-const getValue = require("./utils/utils");
+const { getConfig, getInput, getOutput } = require("./utils/utils");
 
 // console.log(process.argv);
 
@@ -7,7 +7,7 @@ const getValue = require("./utils/utils");
 // const message = getValue('-i');
 // console.log(message);
 
-processes(getValue('-c'), getValue('-i'), getValue('-o'));
+processes(getConfig('-c'), getInput('-i'), getOutput('-o'));
 
 
 // const program = new Command();
