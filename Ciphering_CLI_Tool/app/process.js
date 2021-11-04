@@ -5,21 +5,21 @@ const { transformStream } = require("./transform_text");
 const validation = require("./utils/validation");
 
 exports.processes = (config, input, output) => {
-  if (config === 'no config') {
-    console.error("no config");
-    process.exit(9);
-  };
+  // if (config === 'no config') {
+  //   console.error("no config");
+  //   process.exit(9);
+  // };
 
-  if (config === 'config dulicate' || input === 'config dulicate' || output === 'config dulicate') {
-    console.error("config dulicate");
-    process.exit(9);
-  };
+  // if (config === 'config dulicate' || input === 'config dulicate' || output === 'config dulicate') {
+  //   console.error("config dulicate");
+  //   process.exit(9);
+  // };
 
-  const valid = validation(config);
-  if (!valid) {
-    console.error("Config are required");
-    process.exit(9);
-  };
+  // const valid = validation(config);
+  // if (!valid) {
+  //   console.error("Config are required");
+  //   process.exit(9);
+  // };
 
   // if (config === '') {
   //   console.error("NO Config");
