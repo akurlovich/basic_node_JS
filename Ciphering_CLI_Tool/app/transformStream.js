@@ -11,12 +11,12 @@ exports.transformStream = (config) => {
       // this.push(ceasar(chunk.toString("utf8"), shift));
       // this.push(atbash(chunk.toString("utf8")));
 
-      // this.push(cipher(chunk.toString("utf8"), config));
-      if (config[0] === 'C') {
-        this.push(cipher(chunk.toString("utf8"), config));
-      } else {
-        this.push(chunk);
-      }
+      this.push(cipher(chunk.toString("utf8"), config));
+      // if (config[0] === 'C') {
+      //   this.push(cipher(chunk.toString("utf8"), config));
+      // } else {
+      //   this.push(chunk);
+      // }
       callback();
     }
   })
