@@ -7,7 +7,7 @@ const cipher = (text, config) => {
   const arr = config.split('-');
   let readyCipher = text;
   for (let i = 0; i < arr.length; i++) {
-    console.log(arr[i][0].toUpperCase());
+    // console.log(arr[i][0].toUpperCase());
     if (arr[i][0].toUpperCase() === 'C') {
       if (arr[i][1] === '1') {
         readyCipher = ceasar(readyCipher, 1);

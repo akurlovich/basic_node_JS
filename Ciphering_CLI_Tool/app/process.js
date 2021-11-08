@@ -2,11 +2,19 @@ const { pipeline } = require("stream");
 const customOutputStream = require("./custom_output");
 const { inputStream } = require("./inputStream");
 const { outputStream } = require("./outputStream");
-const { transformStream } = require("./transform_text");
+const { transformStream } = require("./transformStream");
 const validation = require("./utils/validation");
 
 exports.processes = (config, input, output) => {
-  const customOut = customOutputStream(output);
+
+  const customOut = customOutputStream(output);    //!---------------
+
+  const readyArrays = [];
+  const arr = config.split('-');
+  for (let i = 0; i < arr.length; i++) {
+    readyArrays.push(transformStream(arr[i]))
+  }
+  // console.log('readyArrays', readyArrays)
   // if (config === 'no config') {
   //   console.error("no config");
   //   process.exit(9);
@@ -34,9 +42,10 @@ exports.processes = (config, input, output) => {
     // console.log('object', config),
     inputStream(input),
     // console.log(inputStream(input)),
-    transformStream(config),
-    // outputStream(output),
-    customOut,
+    // transformStream(config),
+    ...readyArrays,
+    outputStream(output),
+    // customOut,
     // customOutputStream(output),
     error => {
       if (error) {

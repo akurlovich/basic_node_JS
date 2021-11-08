@@ -4,8 +4,8 @@ const fs = require('fs');
 function customOutputStream(filename) {
   const customInput = stream.Writable();
   customInput._write = function(chunk, enc, next) {
-    fs.createWriteStream(filename, {flags: 'a'});
-    // console.log(chunk.toString());
+    // fs.writeFile(filename, {flags: 'a'});
+    console.log(chunk.toString());
     next();
   }
   return customInput;
