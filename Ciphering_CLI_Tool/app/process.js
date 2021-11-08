@@ -1,10 +1,12 @@
 const { pipeline } = require("stream");
+const customOutputStream = require("./custom_output");
 const { inputStream } = require("./inputStream");
 const { outputStream } = require("./outputStream");
 const { transformStream } = require("./transform_text");
 const validation = require("./utils/validation");
 
 exports.processes = (config, input, output) => {
+  const customOut = customOutputStream(output);
   // if (config === 'no config') {
   //   console.error("no config");
   //   process.exit(9);
@@ -33,7 +35,9 @@ exports.processes = (config, input, output) => {
     inputStream(input),
     // console.log(inputStream(input)),
     transformStream(config),
-    outputStream(output),
+    // outputStream(output),
+    customOut,
+    // customOutputStream(output),
     error => {
       if (error) {
         console.error("Somthing gone wrong", error);
