@@ -7,6 +7,8 @@ const { getConfig, getInput, getOutput } = require("./utils/utils");
 // const message = getValue('-i');
 // console.log(message);
 
+//!_____________может принимать -c и -config добавить проверку______
+
 processes(getConfig('-c'), getInput('-i'), getOutput('-o'));
 
 
